@@ -17,7 +17,7 @@ uwemail = st.text_input("Enter the underwriter's email address:")
 schedballoon = st.text_input("Enter the Scheduled Balloon (USD):")
 cutoffnoi = st.text_input("Enter the Cutoff NOI (USD):")
 units= st.text_input("Enter the number of units :")
-recentval = = st.text_input("Enter the recent valuation (USD):")
+recentval = st.text_input("Enter the recent valuation (USD):")
 
 loantypes = ["Market", 'Affordable', 'Green']
 loantype = st.selectbox("Choose a type:", loantypes)
