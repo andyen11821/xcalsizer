@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import pandas_streamlit as sp
 
 url_data = (r'https://github.com/andyen11821/xcalsizer/blob/main/Cap%20Rates.csv')
 
