@@ -1,3 +1,8 @@
+from flask import Flask
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 import pandas as pd
 import streamlit_pandas as sp
 
