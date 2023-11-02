@@ -32,6 +32,8 @@ cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]  # Add mor
 city = st.selectbox("Choose a city:", cities)
 
 if st.button("Get Cap Rates"):
+    caprate = url_data['Average Cap Rate'](city)
+    st.write ('Average cap rate for ' + city + ' is ' + caprate)
     
 
   
