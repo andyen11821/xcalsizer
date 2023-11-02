@@ -1,5 +1,3 @@
-pip install pdfkit
-
 import streamlit as st
 import pdfkit
 import io
