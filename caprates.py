@@ -1,4 +1,8 @@
 import streamlit as st
+import pandas as pd
+
+url_data = (r'https://raw.githubusercontent.com/andyen11821/rona/main/Countries-Continents.csv')
+
 
 st.write('X-Caliber Capital Automatic Sizer')
 
@@ -24,6 +28,8 @@ st.write('X-Caliber Capital Automatic Sizer')
 
 cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]  # Add more cities as needed
 city = st.selectbox("Choose a city:", cities)
+
+pd.read_csv
 
 if st.button("Get Cap Rates"):
     
