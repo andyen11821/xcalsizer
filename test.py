@@ -1,10 +1,10 @@
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(x-calibersizer)
 
 @app.route('/')
 def home():
     return 'Hello, World!'
 
-if __name__ == '__main__':
+ifx-calibersizer == 'x-calibersizer':
     app.run(debug=True)
