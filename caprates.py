@@ -1,4 +1,8 @@
+pip install pdfkit
+
 import streamlit as st
+import pdfkit
+import io
 
 st.write('X-Caliber Capital Automatic Sizer')
 
@@ -25,6 +29,16 @@ loantype = st.selectbox("Choose a type:", loantypes)
 cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]  # Add more cities as needed
 city = st.selectbox("Choose a city:", cities)
 
-st.button("Get Cap Rates")
-# Code to fetch and display cap rates
+if st.button("Get Cap Rates"):
+    # Code to fetch and display cap rates
+    # Example content for PDF generation
+    content = f"Commercial Cap Rates for {city}"
+    pdf_bytes = generate_pdf(content)
+    
+    # Convert bytes to a BytesIO object
+    pdf_io = io.BytesIO(pdf_bytes)
+    
+    # Download link for PDF
+    st.download_button(label="Download Cap Rates PDF", data=pdf_io, file_name="cap_rates.pdf", mime="application/pdf")
+
   
