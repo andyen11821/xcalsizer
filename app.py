@@ -1,10 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return 'Hello, World!'
+def index():
+    return render_template('index.html')
 
-if __name__ == '__name__':
+@app.route('/get_cap_rates', methods=['POST'])
+def get_cap_rates():
+    city = request.form.get('city')
+    return f'Cap rates for {city} are currently unavailable.'
+
+if __name__ == '__main__':
     app.run(debug=True)
