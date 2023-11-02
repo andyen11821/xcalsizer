@@ -7,8 +7,8 @@ projectcity = st.text_input("Enter the project city:")
 projectstate = st.text_input("Enter the project state:")
 
 ogname = st.text_input("Enter the originator:")
-ogphone = st.text_input('Enter the originator's phone number:')
-ogemail = st.text_input('Enter the originator's email address:')
+ogphone = st.text_input("Enter the originator's phone number:")
+ogemail = st.text_input("Enter the originator's email address:")
 
 uwname = st.text_input("Enter the underwriter's name:")
 uwphone = st.text_input("Enter the underwriter's phone number:")
