@@ -6,4 +6,4 @@ cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]  # Add mor
 city = st.selectbox("Choose a city:", cities)
 
 if st.button("Get Cap Rates"):
-    # Code to fetch and display cap rates
+# Code to fetch and display cap rates
