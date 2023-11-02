@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 
 url_data = (r'https://github.com/andyen11821/xcalsizer/blob/main/Cap%20Rates.csv')
+
+col_names = ['City', 'State', 'Zip Code', 'Average Cap Rate']
 capratelist = pd.read_csv('url_data', encoding = 'ISO-8859-1', names = col_names)
 
 st.write('X-Caliber Capital Automatic Sizer')
