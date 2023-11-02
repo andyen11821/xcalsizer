@@ -1,8 +1,3 @@
-git add requirements.txt
-git commit -m "Add requirements file"
-git push origin main
-
-
 import streamlit as st
 import pdfkit
 import io
