@@ -12,7 +12,7 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     # Get the value from the dropdown
-    selected_city = request.form['City'].lower()
+    selected_city = request.form['City-drowdown'].lower()
 
     # URL of the CSV file
     csv_url = 'https://raw.githubusercontent.com/andyen11821/xcalsizer/main/Cap%20Rates.csv'
