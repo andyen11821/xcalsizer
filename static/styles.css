@@ -1,93 +1,75 @@
+/* Reset some default styling in browsers */
+* {
+  margin: 0;
+  padding-top: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a neutral background color */
 body {
-  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  font-family: 'Verdana', sans-serif;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  color: #333;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
+/* Center the content and apply spacing */
+h1, form {
   text-align: center;
+  margin: 20px;
 }
 
-header {
-  background: #50a3a2;
-  color: white;
-  padding-top: 30px;
-  min-height: 70px;
-  border-bottom: 1px solid #eeeeee;
+/* Style the heading */
+h1 {
+  font-size: 2em;
+  color: #222;
+  margin-bottom: 0px;
+    margin-top: 150px;
 }
 
-header a {
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 16px;
-}
-
-header ul {
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-header li {
-  float: left;
-  display: inline;
-  padding: 0 20px 0 20px;
-}
-
-header #branding {
-  display: inline;
-}
-
-header #branding h1 {
-  margin: 0;
-}
-
-header nav {
-  float: right;
-  margin-top: 10px;
-}
-
-header .highlight, header .current a {
-  font-weight: bold;
-  color: #e8491d;
-  padding: 0;
-}
-
-header a:hover {
-  color: white;
-  font-weight: bold;
-}
-
-input[type="text"], button {
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
+/* Style the form elements */
+label {
+  font-size: 1em;
+  margin-bottom: 10px;
+  display: block;
 }
 
 input[type="text"] {
-  width: 70%;
-  box-sizing: border-box;
-  border: 2px solid #ffd700; /* Gold color */
+  font-size: 1em;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: ;
+  width: 30%;
 }
 
-button {
-  background-color: #ffd700; /* Gold color */
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.dropdown-style {
+  width: 30%;
+  padding: 8px;
+  border: 1px solid #CDCDCD; /* Standard light grey border */
+  border-radius: 4px; /* Optional: rounds the corners of the dropdown */
+  box-sizing: border-box; /* Makes sure the padding doesn't increase the size of the dropdown */
+    margin-bottom: 30px;
 }
 
-button:hover {
-  background-color: #d4af37; /* Darker gold */
+
+.center-button {
+  display: block;      /* makes the <button> a block-level element */
+  margin: 0 auto;      /* auto margins on both sides */
+  /* Additional styles for your button */
+  padding: 10px 156px;  /* Button padding */
+  background-color: #CEA054; /* Button color */
+  color: white;        /* Text color */
+  border: none;        /* No border */
+  cursor: pointer;     /* Pointer cursor on hover */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+
+.center-button:hover {
+  background-color: #CEA054;
 }
