@@ -17,7 +17,7 @@ def submit():
         reader = csv.DictReader(csvfile)
         for row in reader:
             if row['city'].lower() == selected_city:
-                output = row['info']  # Assume 'info' is the corresponding output column in your CSV
+                output = row['Average Cap Rate']  # Assume 'info' is the corresponding output column in your CSV
                 break
     
     # Return the matching output
