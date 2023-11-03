@@ -1,31 +1,32 @@
-from flask import Flask, request, render_template_string
-import requests
+from flask import Flask, render_template, request, redirect, url_for
 import csv
-from io import StringIO
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
-    selected_city = request.form['city']
+    # Get the value from the dropdown
+    selected_city = request.form['city'].lower()
 
-    # URL to the raw CSV file on GitHub
-    csv_url = 'https://raw.githubusercontent.com/yourusername/yourrepo/branch/path/to/Cap%20Rates.csv'
-    
-    # Fetch the CSV file from GitHub
-    response = requests.get(csv_url)
-    response.raise_for_status()  # Will raise an HTTPError if the HTTP request returned an unsuccessful status code
-    
-    # Use StringIO to make the string response behave like a file object for the csv.reader
-    csv_file = StringIO(response.text)
-
-    # Read the CSV data
+    # Open and read the CSV file
     output = "No match found."
-    reader = csv.DictReader(csv_file)
-    for row in reader:
-        if row['City'].lower() == selected_city.lower():
-            output = row['Average Cap Rate']  # Adjust the key if necessary
-            break
+    try:
+        with open('Cap Rates.csv', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['city'].lower() == selected_city:
+                    output = row['Average Cap Rate']  # This should match the header in your CSV for the cap rates
+                    break
+    except FileNotFoundError:
+        output = "File not found."
 
     # Return the matching output
-    return f"The information for {selected_city.capitalize()} is: {output}"
+    # You can also redirect to the main page with a message or to a new template
+    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
+
+if __name__ == '__main__':
+    app.run(debug=True)
