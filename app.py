@@ -12,7 +12,7 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     # Get the value from the dropdown
-    selected_city = request.form['city'].lower()
+    selected_city = request.form['City'].lower()
 
     # URL of the CSV file
     csv_url = 'https://github.com/andyen11821/xcalsizer/blob/8cdb43015f97de48a8164fb1c18a41b80cf097b8/Cap%20Rates.csv'
@@ -31,7 +31,7 @@ def submit():
         # Read the file-like object as CSV
         reader = csv.DictReader(csvfile)
         for row in reader:
-            if row['city'].lower() == selected_city:
+            if row['City'].lower() == selected_city:
                 output = row['Average Cap Rate']  # This should match the header in your CSV for the cap rates
                 break
     except requests.HTTPError as e:
