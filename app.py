@@ -15,7 +15,7 @@ def submit():
     selected_city = request.form['City'].lower()
 
     # URL of the CSV file
-    csv_url = 'https://github.com/andyen11821/xcalsizer/blob/8cdb43015f97de48a8164fb1c18a41b80cf097b8/Cap%20Rates.csv'
+    csv_url = 'https://raw.githubusercontent.com/andyen11821/xcalsizer/8cdb43015f97de48a8164fb1c18a41b80cf097b8/Cap%20Rates.csv?token=GHSAT0AAAAAACJY7SKGBXCGEUBCPGKGOBDEZKFERZQ'
 
     # Initialize output variable
     output = "No match found."
