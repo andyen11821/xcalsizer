@@ -18,7 +18,7 @@ def submit():
         with open('Cap Rates.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if row['city'].lower() == selected_city:
+                if row['City'].lower() == selected_city:
                     output = row['Average Cap Rate']  # This should match the header in your CSV for the cap rates
                     break
     except FileNotFoundError:
