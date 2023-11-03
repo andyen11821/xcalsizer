@@ -1,6 +1,9 @@
+from flask import Flask, request, render_template_string
 import requests
 import csv
 from io import StringIO
+
+app = Flask(__name__)
 
 @app.route('/submit', methods=['POST'])
 def submit():
