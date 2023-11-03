@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import csv
 import requests
 from io import StringIO
+import traceback
 
 app = Flask(__name__)
 
@@ -42,6 +43,7 @@ def submit():
         output = f"Value error: {e}"
     except Exception as e:
         output = f"An unexpected error occurred: {e}"
+         print(traceback.format_exc())
 
     # Return the matching output
     return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
