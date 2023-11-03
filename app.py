@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+import csv
 
 app = Flask(__name__)
 
@@ -6,38 +7,26 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/', methods=['GET'])
-def form():
-    # A simple form with a dropdown
-    return render_template_string('''
-        <form action="/submit" method="post">
-            <select name="city">
-              <option value="losangeles">Los Angeles</option>
-              <option value="pheonix">Phoenix</option>
-              <option value="chicago">Chicago</option>
-              <option value="houston">Houston</option>
-              <option value="newyork">New York</option>
-            </select>
-            <input type="submit">
-        </form>
-    ''')
-    
 @app.route('/submit', methods=['POST'])
 def submit():
     # Get the value from the dropdown
-    selected_city = request.form['city']
-    
+    selected_city = request.form['city'].lower()
+
     # Open and read the CSV file
     output = "No match found."
-    with open('Cap Rates.csv', newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            if row['city'].lower() == selected_city:
-                output = row['Average Cap Rate']  # Assume 'info' is the corresponding output column in your CSV
-                break
-    
+    try:
+        with open('Cap Rates.csv', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['city'].lower() == selected_city:
+                    output = row['Average Cap Rate']  # This should match the header in your CSV for the cap rates
+                    break
+    except FileNotFoundError:
+        output = "File not found."
+
     # Return the matching output
-    return f"The information for {selected_city} is: {output}"
+    # You can also redirect to the main page with a message or to a new template
+    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
 
 if __name__ == '__main__':
     app.run(debug=True)
