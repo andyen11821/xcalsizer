@@ -10,7 +10,7 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     # Get the value from the dropdown
-    selected_city = request.form['city'].lower()
+    selected_city = request.form['City'].lower()
 
     # Open and read the CSV file
     output = "No match found."
