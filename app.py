@@ -34,12 +34,14 @@ def submit():
             if row['City'].lower() == selected_city:
                 output = row['Average Cap Rate']  # This should match the header in your CSV for the cap rates
                 break
-    except requests.HTTPError as e:
-        output = f"HTTP Error occurred: {e}"
-    except requests.RequestException as e:
-        output = f"Request Exception occurred: {e}"
+    except FileNotFoundError:
+        output = "File not found."
+    except csv.Error as e:
+        output = f"CSV error: {e}"
+    except ValueError as e:
+        output = f"Value error: {e}"
     except Exception as e:
-        output = f"An error occurred: {e}"
+        output = f"An unexpected error occurred: {e}"
 
     # Return the matching output
     return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
