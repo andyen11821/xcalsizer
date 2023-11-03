@@ -1,31 +1,32 @@
+from flask import Flask, render_template, request, redirect, url_for
 import csv
-from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
-    selected_city = request.form['city']
+    # Get the value from the dropdown
+    selected_city = request.form['city'].lower()
+
+    # Open and read the CSV file
     output = "No match found."
     try:
         with open('Cap Rates.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                # This will strip extra whitespace from headers and values
-                row = {k.strip(): v.strip() for k, v in row.items()}
-                # Adjust the key here to match your CSV header
-                if row['City'].strip().lower() == selected_city.lower():
-                    output = row['Average Cap Rate']
+                if row['city'].lower() == selected_city:
+                    output = row['Average Cap Rate']  # This should match the header in your CSV for the cap rates
                     break
-    except csv.Error as e:
-        output = f"Error reading CSV file: {e}"
-    except KeyError as e:
-        output = f"Column not found in CSV file: {e}"
-    except Exception as e:
-        output = f"An unexpected error occurred: {e}"
+    except FileNotFoundError:
+        output = "File not found."
 
-    # Return the matching output or an error message
-    return f"The information for {selected_city.capitalize()} is: {output}"
+    # Return the matching output
+    # You can also redirect to the main page with a message or to a new template
+    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
 
 if __name__ == '__main__':
     app.run(debug=True)
