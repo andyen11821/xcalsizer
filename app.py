@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/submit', methods=['POST'])
 def submit():
     selected_city = request.form['city']
     output = "No match found."
