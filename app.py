@@ -15,7 +15,7 @@ def submit():
     selected_city = request.form['city'].lower()
 
     # URL of the CSV file
-    csv_url = 'https://raw.githubusercontent.com/andyen11821/xcalsizer/main/Cap Rates.csv'
+    csv_url = 'https://raw.githubusercontent.com/andyen11821/xcalsizer/main/Cap%20Rates.csv'
 
     # Initialize output variable
     output = "No match found."
@@ -31,7 +31,7 @@ def submit():
         # Read the file-like object as CSV
         reader = csv.DictReader(csvfile)
         for row in reader:
-            if row['City'].lower() == selected_city:
+            if row['city'].lower() == selected_city:
                 output = row['average cap rate']  # This should match the header in your CSV for the cap rates
                 break
     except FileNotFoundError:
