@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import csv
-import requests
 from io import StringIO
 import traceback
 
