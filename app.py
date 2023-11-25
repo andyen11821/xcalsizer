@@ -26,7 +26,7 @@ def submit():
         response.raise_for_status()  # Will raise HTTPError if the HTTP request returned an unsuccessful status code
 
         # Use StringIO to make the fetched CSV content appear as a file-like object
-        csvfile = StringIO(response.content.decode('utf-8'))
+        csvfile = StringIO(response.content.decode('utf-8-sig'))
 
         # Read the file-like object as CSV
         reader = csv.DictReader(csvfile)
