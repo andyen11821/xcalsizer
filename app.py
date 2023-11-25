@@ -46,5 +46,9 @@ def submit():
     # Return the matching output
     return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
 
+    reader = csv.DictReader(csvfile)
+    print(reader.fieldnames)
+    
+
 if __name__ == '__main__':
     app.run(debug=True)
