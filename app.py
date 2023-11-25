@@ -44,8 +44,7 @@ def submit():
         output = f"An unexpected error occurred: {e}"
 
     # Return the matching output
-    reader = reader.fieldnames
-    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output} and city names are {reader}")
+    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}.")
 
     
 
