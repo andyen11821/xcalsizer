@@ -44,10 +44,9 @@ def submit():
         output = f"An unexpected error occurred: {e}"
 
     # Return the matching output
-    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output}")
+    reader = reader.fieldnames
+    return render_template('index.html', message=f"The average cap rate for {selected_city.title()} is: {output} and city names are {reader}")
 
-    reader = csv.DictReader(csvfile)
-    print(reader.fieldnames)
     
 
 if __name__ == '__main__':
